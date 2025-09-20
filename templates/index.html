@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klasifikasi Berita Hoaks vs Asli Bahasa Indonesia</title>
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-16 fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 typewriter custom-title">Klasifikasi Berita Hoaks vs Asli
+                Berbahasa Indonesia</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">Platform untuk memverifikasi keaslian berita dalam
+                bahasa Indonesia menggunakan teknologi AI</p>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div class="lg:col-span-1">
+                <div class="bg-gray-800 rounded-2xl shadow-xl p-6 news-card border border-gray-700">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-info-circle text-blue-400 text-2xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white mb-2">Mengapa Penting Memeriksa Berita?</h2>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Di era digital, penyebaran informasi terjadi dengan cepat dan luas. Namun, tidak semua informasi
+                        yang beredar adalah fakta. Berita hoaks dapat dengan mudah menyebar dan mempengaruhi opini
+                        publik.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-exclamation-triangle text-yellow-400 mt-1 mr-3"></i>
+                            <span class="text-gray-300">Berita hoaks dapat menyesatkan masyarakat dan mempengaruhi
+                                pengambilan keputusan</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-users-slash text-red-400 mt-1 mr-3"></i>
+                            <span class="text-gray-300">Dapat memecah belah hubungan sosial dan menciptakan
+                                polarisasi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-money-bill-wave text-green-400 mt-1 mr-3"></i>
+                            <span class="text-gray-300">Menimbulkan kerugian materiil dan immateriil yang
+                                signifikan</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 p-4 bg-blue-900 rounded-lg border border-blue-700">
+                        <p class="text-blue-200 text-sm flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-400 mr-2 mt-1"></i>
+                            <span>Selalu verifikasi informasi dari sumber terpercaya sebelum membagikannya kepada orang
+                                lain. Jangan menjadi bagian dari rantai penyebaran hoaks.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-2xl shadow-xl p-6 mt-8 news-card border border-gray-700">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-brain text-purple-400 text-2xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white mb-2">Tentang Model Kami</h2>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Sistem ini menggunakan model <span class="font-semibold text-blue-400">IndoBERT + SVM</span>
+                        yang telah melalui proses fine-tuning khusus untuk klasifikasi berita dalam bahasa Indonesia.
+                    </p>
+
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold text-white mb-2">Parameter Fine-Tuning (IndoBERT):</h3>
+                        <ul class="text-gray-300 text-sm space-y-1">
+                            <li>• Learning Rate : 0.000005, 0.00001, 0.00002, 0.00003, dan 0.00005</li>
+                            <li>• Weight Decay : 0.001, 0.01, dan 0.1</li>
+                            <li>• Batch Size: 16 dan 32</li>
+                            <li>• Epochs: 10 dengan Early Stopping</li>
+                            <li>• Freeze Layers: 6 layer pertama IndoBERT</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold text-white mb-2">Parameter Fine-Tuning (SVM):</h3>
+                        <ul class="text-gray-300 text-sm space-y-1">
+                            <li>• Parameter C : 0.01, 0.1, 1, 10, dan 100</li>
+                            <li>• Parameter Gamma : 0.001, 0.01, 0.1, 1</li>
+                            <li>• Batch Size: 16 dan 32</li>
+                            <li>• Kernel: RBF (Radial Basis Function)</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold text-white mb-2">Data Training:</h3>
+                        <p class="text-gray-300 text-sm">Total 800 berita (400 hoaks + 400 asli) yang dikumpulkan dari
+                            berbagai sumber terpercaya.</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="bg-blue-900 p-3 rounded-lg text-center border border-blue-700">
+                            <i class="fas fa-database text-blue-400 text-2xl mb-2"></i>
+                            <p class="text-blue-200 text-sm">800 Data Latih</p>
+                        </div>
+                        <div class="bg-green-900 p-3 rounded-lg text-center border border-green-700">
+                            <i class="fas fa-robot text-green-400 text-2xl mb-2"></i>
+                            <p class="text-green-200 text-sm">AI Bahasa Indonesia</p>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-yellow-900 rounded-lg border border-yellow-700">
+                        <p class="text-yellow-200 text-xs flex items-start">
+                            <i class="fas fa-exclamation-circle text-yellow-400 mr-2 mt-1"></i>
+                            <span><strong>Disclaimer:</strong> Model ini dilatih dengan data berita periode Januari 2024
+                                - Mei 2025. Hasil prediksi merupakan estimasi algoritma dan tidak mutlak akurat. Selalu
+                                verifikasi informasi melalui sumber-sumber resmi dan terpercaya.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2">
+                <div class="bg-gray-800 rounded-2xl shadow-xl p-6 mb-8 news-card border border-gray-700">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-search text-green-400 text-2xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white mb-2">Periksa Berita</h2>
+                        <p class="text-gray-300">Masukkan teks berita yang ingin Anda verifikasi keasliannya</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <textarea id="news-text" rows="8"
+                            class="w-full px-4 py-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                            placeholder="Tempelkan teks berita yang ingin diperiksa di sini..."></textarea>
+                    </div>
+
+                    <div class="flex justify-center space-x-4">
+                        <button id="check-news-btn"
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            Periksa Keaslian Berita
+                        </button>
+
+                        <button id="reset-btn"
+                            class="bg-gray-600 hover:bg-gray-700 text-white font-medium py-3 px-8 rounded-lg transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-redo mr-2"></i>
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+                <div id="result" class="bg-gray-800 rounded-2xl shadow-xl p-6 news-card border border-gray-700">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-blue-400 text-2xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white mb-2">Hasil Pemeriksaan</h2>
+                    </div>
+
+                    <div id="result-content" class="text-center">
+                        <div class="placeholder-result">
+                            <div
+                                class="w-20 h-20 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-newspaper text-gray-400 text-3xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-300 mb-2">Hasil Akan Tampil di Sini</h3>
+                            <p class="text-gray-400">Masukkan teks berita dan klik "Periksa Keaslian Berita" untuk
+                                memulai analisis</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-gray-700 p-4 rounded-lg border border-gray-600">
+                        <h3 class="font-medium text-white mb-3 flex items-center">
+                            <i class="fas fa-lightbulb text-yellow-400 mr-2"></i>
+                            Tips Memverifikasi Berita
+                        </h3>
+                        <ul class="text-sm text-gray-300 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span>Periksa sumber berita - pastikan berasal dari media terpercaya dengan reputasi
+                                    baik</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span>Cari konfirmasi dari berbagai sumber - bandingkan dengan pemberitaan media
+                                    lain</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span>Perhatikan tanggal publikasi - berita kadang diputar ulang dengan konteks
+                                    berbeda</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span>Evaluasi kredibilitas penulis - cek latar belakang dan reputasi penulis</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+                                <span>Gunakan tools fact-checking - seperti Turnbackhoax, Mafindo, atau CekFakta</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="text-center text-gray-400 text-sm pt-8 border-t border-gray-700">
+            <p>© 2025 Klasifikasi Berita Hoaks vs Asli Bahasa Indonesia. All rights reserved.</p>
+            <p class="mt-2">Dibuat dengan <i class="fas fa-heart text-red-500"></i> untuk Indonesia.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
